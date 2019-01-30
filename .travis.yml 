@@ -1,0 +1,18 @@
+sudo: false
+
+language: python
+
+dist: xenial
+
+python:
+  - 3.7
+
+install:
+  - pip install tox-travis pipenv
+  - pipenv install --dev
+
+script:
+  - tox
+
+git:
+  depth: false
