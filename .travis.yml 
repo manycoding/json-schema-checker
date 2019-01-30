@@ -16,3 +16,4 @@ script:
 
 git:
   depth: false
+  quiet: true
