@@ -1,5 +1,6 @@
 # json_schema_checker
 [![Build Status](https://travis-ci.org/manycoding/json-schema-checker.svg?branch=master)](https://travis-ci.org/manycoding/json-schema-checker)
+[![codecov](https://codecov.io/gh/manycoding/json-schema-checker/branch/master/graph/badge.svg)](https://codecov.io/gh/manycoding/json-schema-checker)
 
 Strictly checks that a json schema is valid
 
