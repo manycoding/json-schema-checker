@@ -12,10 +12,7 @@ tox-pipenv = "*"
 codecov = "*"
 
 [packages]
-jsonschema = "*"
-strict-rfc3339 = "*"
-rfc3987 = "*"
-webcolors = "*"
+jsonschema = {extras = ["format"],version = "*"}
 
 [requires]
 python_version = "3.7"

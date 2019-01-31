@@ -5,7 +5,7 @@ from jsonschema import exceptions, validators
 Schema = Dict[str, any]
 
 
-def check_schema(schema: Schema, extended_keywords: Optional[set] = None):
+def check(schema: Schema, extended_keywords: Optional[set] = None):
     if not schema:
         raise exceptions.SchemaError("Schema is empty")
 
@@ -64,11 +64,14 @@ def get_invalid_formats(schema):
         "date-time",
         "email",
         "hostname",
+        "idn-hostname",
         "ipv4",
         "ipv6",
         "iri",
         "iri-reference",
+        "json-pointer",
         "regex",
+        "relative-json-pointer",
         "time",
         "uri",
         "uri-reference",

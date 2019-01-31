@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "deb78056312de0dc28806eb9267341fa6afbd0b10f872675d3c1851c877bf672"
+            "sha256": "8de49673f6c6189583a3168f27f3af4880858bfed8f33b615655ecd6c0259a73"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -23,7 +23,24 @@
             ],
             "version": "==18.2.0"
         },
+        "idna": {
+            "hashes": [
+                "sha256:c357b3f628cf53ae2c4c05627ecc484553142ca23264e593d327bcde5e9c3407",
+                "sha256:ea8b7f6188e6fa117537c3df7da9fc686d485087abf6ac197f9c46432f7e4a3c"
+            ],
+            "version": "==2.8"
+        },
+        "jsonpointer": {
+            "hashes": [
+                "sha256:c192ba86648e05fdae4f08a17ec25180a9aef5008d973407b581798a83975362",
+                "sha256:ff379fa021d1b81ab539f5ec467c7745beb1a5671463f9dcc2b2d458bd361c1e"
+            ],
+            "version": "==2.0"
+        },
         "jsonschema": {
+            "extras": [
+                "format"
+            ],
             "hashes": [
                 "sha256:683fe7ed58763ea0be572de5aad47cd3cc1297640916f9a8ccd222b287da7d2f",
                 "sha256:b42d7a292addb57370e6260bcbadb77e00a899fe6ec998c453f45893c41c658b"
@@ -42,7 +59,6 @@
                 "sha256:10702b1e51e5658843460b189b185c0366d2cf4cff716f13111b0ea9fd2dce53",
                 "sha256:d3c4d257a560d544e9826b38bc81db676890c79ab9d7ac92b39c7a253d5ca733"
             ],
-            "index": "pypi",
             "version": "==1.3.8"
         },
         "six": {
@@ -56,7 +72,6 @@
             "hashes": [
                 "sha256:5cad17bedfc3af57b399db0fed32771f18fc54bbd917e85546088607ac5e1277"
             ],
-            "index": "pypi",
             "version": "==0.7"
         },
         "webcolors": {
@@ -64,7 +79,6 @@
                 "sha256:030562f624467a9901f0b455fef05486a88cfb5daa1e356bd4aacea043850b59",
                 "sha256:b3b88e5ef2b35fa9e01e3fabe99dddf49da074459c44774c59f3ccab3be4f121"
             ],
-            "index": "pypi",
             "version": "==1.8.1"
         }
     },
