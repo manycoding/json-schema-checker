@@ -14,6 +14,7 @@ good_schema = {
     "definitions": {"unicode_number": {"pattern": "^-?[0-9]{1,7}\\.[0-9]{2}$"}},
     "required": ["company"],
     "properties": {"company": {"pattern": "^Dell$"}},
+    "dependencies": {"wage_max": {"required": ["wage_min"]}},
 }
 
 
@@ -104,6 +105,7 @@ def test_check(schema, extended_keywords, exception, message):
             set(),
             {"patternPropertie", "^.*"},
         ),
+        (good_schema, set(), set()),
     ],
 )
 def test_get_invalid_keywords(schema, extended_keywords, expected_keywords):
