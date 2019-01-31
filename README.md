@@ -13,7 +13,7 @@ _Because soft validation is not enough_
         "propertie": {"company": {"pattern": "^(Apple)$"}, "format": "url"},
     }
     
-But we want to catch those `propertie` typos and invalid `url` [formats](https://json-schema.org/understanding-json-schema/reference/string.html#format).
+But we want to catch those `propertie` typos and invalid `url` [formats](https://python-jsonschema.readthedocs.io/en/latest/validate/#validating-formats).
 
 The library rely on [jsonschema](https://github.com/Julian/jsonschema) and supports additional keywords to ignore.
 
