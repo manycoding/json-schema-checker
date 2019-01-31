@@ -184,7 +184,7 @@ def test_get_formats(schema, expected_values):
                 {"format": "idn-hostname"},
                 {"format": "json-pointer"},
             ],
-            {"relative-json-pointer", "idn-hostname", "json-pointer"},
+            set(),
         ),
     ],
 )
