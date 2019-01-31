@@ -12,7 +12,7 @@ tox-pipenv = "*"
 codecov = "*"
 
 [packages]
-jsonschema = {extras = ["extras"],version = "*"}
+jsonschema = {extras = ["format"],version = "*"}
 
 [requires]
 python_version = "3.7"
