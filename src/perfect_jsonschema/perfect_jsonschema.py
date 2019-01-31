@@ -38,7 +38,12 @@ def get_invalid_keywords(schema: Schema, extended_keywords: Optional[set]) -> se
 
 
 def get_filtered_keys(schema: dict, saved_keys: set, parent_key: str = None) -> set:
-    parent_keys_to_filter = {"properties", "patternProperties", "definitions"}
+    parent_keys_to_filter = {
+        "properties",
+        "patternProperties",
+        "definitions",
+        "dependencies",
+    }
     if isinstance(schema, dict):
         saved_keys = saved_keys.union(
             key for key in schema.keys() if parent_key not in parent_keys_to_filter
