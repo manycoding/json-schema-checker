@@ -1,6 +1,6 @@
-# json_schema_checker
-[![Build Status](https://travis-ci.org/manycoding/json-schema-checker.svg?branch=master)](https://travis-ci.org/manycoding/json-schema-checker)
-[![codecov](https://codecov.io/gh/manycoding/json-schema-checker/branch/master/graph/badge.svg)](https://codecov.io/gh/manycoding/json-schema-checker)
+# perfect-jsonschema
+[![Build Status](https://travis-ci.org/manycoding/perfect-jsonschema.svg?branch=master)](https://travis-ci.org/manycoding/perfect-jsonschema)
+[![codecov](https://codecov.io/gh/manycoding/perfect-jsonschema/branch/master/graph/badge.svg)](https://codecov.io/gh/manycoding/perfect-jsonschema)
 
 Strictly checks that a json schema is valid
 
@@ -16,10 +16,10 @@ Derives the draft from the schema and yields a `jsonschema.SchemaError` if:
 
 # Usage
 
-    from json_schema_checker import check_schema
+    from perfect-jsonschema import check
 
     try:
-        check_schema(schema, extended_keywords={"tag"})
+        check(schema, extended_keywords={"tag"})
     except Exception as e:
         do_something()
 

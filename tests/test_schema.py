@@ -1,6 +1,4 @@
-import logging
-
-import json_schema_checker.json_schema_checker as js_val
+import perfect_jsonschema.perfect_jsonschema as ps
 from jsonschema.exceptions import SchemaError
 import pytest
 
@@ -79,12 +77,12 @@ On schema['type']:
         ),
     ],
 )
-def test_check_schema(schema, extended_keywords, exception, message):
+def test_check(schema, extended_keywords, exception, message):
     if not exception:
-        js_val.check_schema(schema, extended_keywords)
+        ps.check(schema, extended_keywords)
     else:
         with pytest.raises(exception) as excinfo:
-            js_val.check_schema(schema, extended_keywords)
+            ps.check(schema, extended_keywords)
         assert str(excinfo.value) == message
 
 
@@ -109,7 +107,7 @@ def test_check_schema(schema, extended_keywords, exception, message):
     ],
 )
 def test_get_invalid_keywords(schema, extended_keywords, expected_keywords):
-    assert js_val.get_invalid_keywords(schema, extended_keywords) == expected_keywords
+    assert ps.get_invalid_keywords(schema, extended_keywords) == expected_keywords
 
 
 @pytest.mark.parametrize(
@@ -139,7 +137,7 @@ def test_get_invalid_keywords(schema, extended_keywords, expected_keywords):
     ],
 )
 def test_get_filtered_keys(schema, expected_keywords):
-    assert js_val.get_filtered_keys(schema, set()) == expected_keywords
+    assert ps.get_filtered_keys(schema, set()) == expected_keywords
 
 
 @pytest.mark.parametrize(
@@ -166,7 +164,7 @@ def test_get_filtered_keys(schema, expected_keywords):
     ],
 )
 def test_get_formats(schema, expected_values):
-    assert js_val.get_formats(schema) == expected_values
+    assert ps.get_formats(schema) == expected_values
 
 
 @pytest.mark.parametrize(
@@ -191,4 +189,4 @@ def test_get_formats(schema, expected_values):
     ],
 )
 def test_get_invalid_formats(schema, expected_keywords):
-    assert js_val.get_invalid_formats(schema) == expected_keywords
+    assert ps.get_invalid_formats(schema) == expected_keywords

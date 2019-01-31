@@ -6,11 +6,11 @@ dependency_links = ["git+https://github.com/julian/jsonschema.git#egg=jsonschema
 
 
 setup(
-    name="json-schema-checker",
+    name="perfect-jsonschema",
     description="Strictly checks that a json schema is valid",
     author="manycoding",
     license="MIT",
-    url="https://github.com/manycoding/json-schema-checker",
+    url="https://github.com/manycoding/perfect-jsonschema",
     platforms=["Any"],
     packages=find_packages(where="src"),
     package_dir={"": "src"},

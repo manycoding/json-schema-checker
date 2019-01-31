@@ -5,7 +5,7 @@ from jsonschema import exceptions, validators
 Schema = Dict[str, any]
 
 
-def check_schema(schema: Schema, extended_keywords: Optional[set] = None):
+def check(schema: Schema, extended_keywords: Optional[set] = None):
     if not schema:
         raise exceptions.SchemaError("Schema is empty")
 
