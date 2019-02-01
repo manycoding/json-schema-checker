@@ -5,7 +5,7 @@
 _Because soft validation is not enough_
 
 # Why
-[JSON schema standard](https://json-schema.org/) and its implementations stand that if you have something unfamiliar, it's not an error. In particular, you won't get an error if you made a typo or used something you thought as working. For example, this one is perfectly fine and valid:
+[JSON schema standard](https://json-schema.org/) and its implementations stand that if you have something unfamiliar in your schema, it's not an error. In particular, you won't get an error if you made a typo or used something you thought as working. For example, this one is perfectly fine and valid:
 
     {
         "required": ["company"],
