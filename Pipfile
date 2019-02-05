@@ -4,18 +4,19 @@ url = "https://pypi.org/simple"
 verify_ssl = true
 
 [dev-packages]
-black = "*"
+black = {git = "https://github.com/ambv/black"}
 pytest = "*"
 pytest-cov = "*"
 pytest-pythonpath = "*"
 tox-pipenv = "*"
 codecov = "*"
+bumpversion = "*"
 
 [packages]
-jsonschema = {extras = ["format"],version = "*"}
+jsonschema = {editable = true, extras = ["format"],git = "https://github.com/Julian/jsonschema"}
 
 [requires]
 python_version = "3.7"
 
 [pipenv]
-allow_prereleases = true
+allow_prereleases = false
