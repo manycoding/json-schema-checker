@@ -21,3 +21,11 @@ after_success:
 git:
   depth: false
   quiet: true
+
+deploy:
+  provider: pypi
+  user: manycoding
+  password:
+    secure: Uhp9bM/scHATSBFfqk29KxXdzcLeNmYanQ+C7KDLdjmUnKWyurdIxV7+ZETkxFr+pyvTSYJ3mm/AuzNILRtoDzU7DNKUGT0bR91U4+mw+OH0wrZwGJnlM3ZUIs7A9wKhi3JKNg3Ym9LtOx24uCw6J2DdlGnk2Mt2WSV9RPYZMBuLuCHujw2+NiFkTVyCT2eT0ONkvERB4zvWC8U5ZoLAcoWcp0hO+LasR3mtMvyFmNBU/JKkvrLf1XWPJk/PTiRJHP0fEkVhqhAeohBNO3GzndrGQlgQaSRmPIvCyltDImnlQwDF8IgEGGv+2v1+NuHk+eDCQqEgoVR/doi01YEVlBkIxsG1nhifkW1mjF8/h63LJDotmLyHebmy8NneTLLhx/B1YPJ0B5FUoz52nN79P1yMSOXTwbp/OliSsHSKo5S+h21k1LkSnWfoQaHiOO/oWpNU17QX9fOWXSR7gm/4r6O6Q6Nxo3H5YvcOkatTWW8MhPON4xhMD4HpTISYF6bblkph6iM+ru7o1Vr8eK7mGH+A2i0oUmtRRWGp5Zhj7avO3QnMeGtmhQUDqXQssPw8nIN/lW5KeujSnbIa0eKfXilkIfrCcBl27xm4i8VA95Pb3PKrseiJmPDeIONGdLfmq6xptuzRG/2bHvEEcnImLmYVXIhHYXLCMrB4KCxPjck=
+  on:
+    tags: true
