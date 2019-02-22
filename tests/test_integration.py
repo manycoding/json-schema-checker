@@ -1,4 +1,4 @@
-from jsonschema import FormatChecker, validate, ValidationError
+from fastjsonschema import validate, JsonSchemaException, JsonSchemaDefinitionException
 import pytest
 
 
@@ -12,6 +12,6 @@ import pytest
     ],
 )
 def test_format(instance, format_value):
-    with pytest.raises(ValidationError) as excinfo:
-        validate(instance, {"format": format_value}, format_checker=FormatChecker())
+    with pytest.raises(JsonSchemaException) as excinfo:
+        validate(instance, {"format": format_value})
     assert f"'{instance}' is not a '{format_value}'" in str(excinfo.value)

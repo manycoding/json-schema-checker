@@ -1,5 +1,5 @@
 import perfect_jsonschema.perfect_jsonschema as ps
-from jsonschema.exceptions import SchemaError
+from fastjsonschema import JsonSchemaException
 import pytest
 
 
@@ -25,7 +25,7 @@ good_schema = {
         (
             bad_schema,
             None,
-            SchemaError,
+            JsonSchemaException,
             """'error_here' is not valid under any of the given schemas
 
 Failed validating 'anyOf' in metaschema['properties']['type']:
@@ -38,12 +38,12 @@ Failed validating 'anyOf' in metaschema['properties']['type']:
 On schema['type']:
     'error_here'""",
         ),
-        ("", None, SchemaError, "Schema is empty"),
-        (None, None, SchemaError, "Schema is empty"),
+        ("", None, JsonSchemaException, "Schema is empty"),
+        (None, None, JsonSchemaException, "Schema is empty"),
         (
             {"properties": {"address": {"rege": "*.^"}}},
             None,
-            SchemaError,
+            JsonSchemaException,
             (
                 "Schema contains invalid keywords for http://json-schema.org/draft-07/schema#"
                 ":\n{'rege'}"
@@ -52,7 +52,7 @@ On schema['type']:
         (
             {"properties": {"address": {"rege": "*.^", "tag": ["unique"]}}},
             {"tag"},
-            SchemaError,
+            JsonSchemaException,
             (
                 "Schema contains invalid keywords for http://json-schema.org/draft-07/schema#"
                 ":\n{'rege'}"
@@ -64,7 +64,7 @@ On schema['type']:
                 "if": {"required": ["name"]},
             },
             None,
-            SchemaError,
+            JsonSchemaException,
             (
                 "Schema contains invalid keywords for http://json-schema.org/draft-06/schema#"
                 ":\n{'if'}"
@@ -73,7 +73,7 @@ On schema['type']:
         (
             {"if": {"format": "url"}},
             None,
-            SchemaError,
+            JsonSchemaException,
             ("Schema contains invalid format values:\n{'url'}"),
         ),
     ],
@@ -180,14 +180,7 @@ def test_get_formats(schema, expected_values):
             },
             {"datetime"},
         ),
-        (
-            [
-                {"format": "relative-json-pointer"},
-                {"format": "idn-hostname"},
-                {"format": "json-pointer"},
-            ],
-            set(),
-        ),
+        ([{"format": "relative-json-pointer"}, {"format": "json-pointer"}], set()),
     ],
 )
 def test_get_invalid_formats(schema, expected_keywords):

@@ -1,37 +1,33 @@
 from typing import Dict, Optional
 
-from jsonschema import exceptions, validators
+from fastjsonschema import compile, JsonSchemaDefinitionException, JsonSchemaException
 
 Schema = Dict[str, any]
 
 
 def check(schema: Schema, extended_keywords: Optional[set] = None):
     if not schema:
-        raise exceptions.SchemaError("Schema is empty")
-
-    validator = validators.validator_for(schema)
+        raise JsonSchemaDefinitionException("Schema is empty")
 
     if not extended_keywords:
         extended_keywords = set()
     invalid_keywords = get_invalid_keywords(schema, extended_keywords)
     if invalid_keywords:
-        raise exceptions.SchemaError(
-            f"Schema contains invalid keywords for "
-            f"{validator.META_SCHEMA['$schema']}:\n{invalid_keywords}"
+        raise JsonSchemaDefinitionException(
+            f"Schema contains invalid keywords:\n{invalid_keywords}"
         )
 
     invalid_formats = get_invalid_formats(schema)
     if invalid_formats:
-        raise exceptions.SchemaError(
+        raise JsonSchemaDefinitionException(
             f"Schema contains invalid format values:\n{invalid_formats}"
         )
-    validator.check_schema(schema)
+
+    compile(schema)
 
 
 def get_invalid_keywords(schema: Schema, extended_keywords: Optional[set]) -> set:
-    draft_keywords = set(
-        validators.validator_for(schema).META_SCHEMA["properties"].keys()
-    )
+    draft_keywords = set("valid_keywords_here")
     allowed_keywords = draft_keywords.union(extended_keywords)
     keys = get_filtered_keys(schema, set())
     return keys.difference(allowed_keywords)
@@ -59,22 +55,21 @@ def get_filtered_keys(schema: dict, saved_keys: set, parent_key: str = None) -> 
 
 def get_invalid_formats(schema):
     allowed_formats = {
-        "color",
-        "date",
         "date-time",
+        "date",
         "email",
         "hostname",
-        "idn-hostname",
+        "idn-email",
         "ipv4",
         "ipv6",
-        "iri",
         "iri-reference",
+        "iri",
         "json-pointer",
-        "regex",
         "relative-json-pointer",
         "time",
-        "uri",
         "uri-reference",
+        "uri-template",
+        "uri",
     }
 
     actual_formats = get_formats(schema)
