@@ -15,15 +15,15 @@ _Because soft validation is not enough_
     
 But we want to catch those `propertie` typos and invalid `url` [formats](https://python-jsonschema.readthedocs.io/en/latest/validate/#validating-formats).
 
-The library rely on [jsonschema](https://github.com/Julian/jsonschema) and supports additional keywords to ignore.
+The library relies on [fastjsonschema](https://github.com/horejsek/python-fastjsonschema) and supports additional keywords to ignore.
 
 # Features
 
-Derives the draft from the schema and yields a `jsonschema.SchemaError` if:
+Derives the draft from the schema and yields a `JsonSchemaDefinitionException` if:
 * A schema is empty
 * A schema contains a keyword which is not a part of a jsonschema implementation or `extended_keywords` set
 * A schema contains an invalid format value
-* A schema fails with `jsonschema.check_schema()`
+* A schema fails to compile `fastjsonschema.compile()`
 
 # Usage
 
@@ -38,7 +38,7 @@ An exception example:
 
     Traceback (most recent call last):
         f"Schema contains invalid keywords for "
-    jsonschema.exceptions.SchemaError: Schema contains invalid keywords for http://json-schema.org/draft-07/schema#:
+    fastjsonschema.exceptions.JsonSchemaDefinitionException: Schema contains invalid keywords for http://json-schema.org/draft-07/schema#:
     {'propertie', 'company'}
 
 # Local development

@@ -13,7 +13,7 @@ codecov = "*"
 bumpversion = "*"
 
 [packages]
-jsonschema = {editable = true, extras = ["format"],git = "https://github.com/Julian/jsonschema"}
+fastjsonschema = "*"
 
 [requires]
 python_version = "3.7"
